@@ -349,7 +349,7 @@ export default function App() {
         </section>
 
         <footer className="site-footer">
-          Made with love for Jabez & Asha
+          Made with love
         </footer>
 
         <button
