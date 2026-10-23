@@ -1,0 +1,1017 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   THEME
+======================================== */
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #49343c;
+  background: #fff9fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+
+  --pink: #e9a8b8;
+  --pink-dark: #bd7188;
+  --pink-light: #fff0f4;
+  --pink-border: #f1d5de;
+  --pink-soft: #fceef2;
+  --white: #fffdfd;
+  --gold: #b69a65;
+  --text-dark: #49343c;
+  --text-muted: #907a81;
+  --shadow-pink: 0 8px 26px rgba(177, 111, 132, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.wedding-site {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff9fb;
+}
+
+/* ========================================
+   OPENING CURTAIN
+======================================== */
+
+.curtain-screen {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #754657;
+  color: #fff8fa;
+}
+
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 52%;
+  background-color: #89576a;
+  background-image:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.18),
+      transparent 12%,
+      rgba(255, 255, 255, 0.06) 25%,
+      rgba(0, 0, 0, 0.08) 42%,
+      rgba(255, 255, 255, 0.04) 58%,
+      rgba(0, 0, 0, 0.13) 77%,
+      transparent),
+    repeating-linear-gradient(90deg,
+      rgba(0, 0, 0, 0.07) 0,
+      rgba(0, 0, 0, 0.07) 2px,
+      transparent 8px,
+      transparent 25px);
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.14);
+}
+
+.curtain-left {
+  left: 0;
+  border-right: 1px solid rgba(245, 206, 219, 0.35);
+}
+
+.curtain-right {
+  right: 0;
+  border-left: 1px solid rgba(245, 206, 219, 0.35);
+}
+
+.curtain-content {
+  position: relative;
+  z-index: 2;
+  width: min(90%, 650px);
+  padding: 30px 16px;
+  text-align: center;
+}
+
+.gold-ornament {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  color: #f0d4a3;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #bd8295;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.8;
+}
+
+.curtain-eyebrow {
+  color: #f5dbe3;
+}
+
+.curtain-names,
+.hero-names,
+.section-title,
+.closing-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+}
+
+.curtain-names {
+  margin: 0;
+  color: #fff8fa;
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
+  line-height: 1;
+}
+
+.curtain-names span {
+  display: block;
+  margin: 12px 0;
+  color: #f0d4a3;
+  font-size: 0.48em;
+  font-style: italic;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 24px 0;
+  color: #f0d4a3;
+}
+
+.gold-divider span {
+  width: 48px;
+  height: 1px;
+  background: #d6b77f;
+}
+
+.curtain-date {
+  color: #f7e6eb;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+}
+
+.curtain-invite {
+  max-width: 370px;
+  margin: 24px auto 28px;
+  color: #f1dfe5;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.open-button {
+  padding: 14px 27px;
+  border: 1px solid #f0c7d5;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff8fa;
+  cursor: pointer;
+  font-size: 0.74rem;
+  letter-spacing: 0.13em;
+  transition:
+    background 250ms ease,
+    color 250ms ease,
+    transform 250ms ease;
+}
+
+.open-button:hover {
+  transform: translateY(-2px);
+  background: #f4d3de;
+  color: #754657;
+}
+
+.curtain-hint {
+  margin-top: 22px;
+  color: #f0dce3;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* ========================================
+   MAIN INVITATION
+======================================== */
+
+.invitation {
+  width: 100%;
+}
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero-section {
+  position: relative;
+  display: flex;
+  min-height: 760px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 100px 24px 90px;
+  background:
+    radial-gradient(ellipse at 50% 42%,
+      rgba(255, 225, 234, 0.85),
+      transparent 58%),
+    linear-gradient(145deg,
+      #fff9fa 0%,
+      #fbeaf0 52%,
+      #fff7f8 100%);
+  text-align: center;
+}
+
+.hero-section::before,
+.hero-section::after {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border: 1px solid rgba(219, 155, 175, 0.24);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.hero-section::before {
+  top: -185px;
+  left: -135px;
+}
+
+.hero-section::after {
+  right: -135px;
+  bottom: -185px;
+}
+
+.hero-glow {
+  position: absolute;
+  z-index: 1;
+  inset: 25px;
+  border: 1px solid rgba(219, 155, 175, 0.28);
+  pointer-events: none;
+}
+
+/* Decorative floating hearts.
+   Add .hero-floating-hearts to the hero JSX. */
+
+.hero-floating-hearts {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-heart {
+  position: absolute;
+  color: #d98da5;
+  opacity: 0.22;
+  stroke-width: 1;
+  animation: floatHeart 6s ease-in-out infinite;
+}
+
+.heart-one {
+  top: 20%;
+  left: 8%;
+  width: 30px;
+  height: 30px;
+}
+
+.heart-two {
+  top: 65%;
+  left: 14%;
+  width: 19px;
+  height: 19px;
+  opacity: 0.17;
+  animation-delay: 1.2s;
+}
+
+.heart-three {
+  top: 36%;
+  right: 8%;
+  width: 36px;
+  height: 36px;
+  animation-delay: 2s;
+}
+
+.heart-four {
+  right: 15%;
+  bottom: 15%;
+  width: 22px;
+  height: 22px;
+  opacity: 0.18;
+  animation-delay: 0.8s;
+}
+
+.heart-five {
+  top: 15%;
+  right: 23%;
+  width: 16px;
+  height: 16px;
+  opacity: 0.17;
+  animation-delay: 1.8s;
+}
+
+.heart-six {
+  top: 48%;
+  left: 4%;
+  width: 25px;
+  height: 25px;
+  opacity: 0.16;
+  animation-delay: 2.5s;
+}
+
+@keyframes floatHeart {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(8deg);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 900px);
+}
+
+.hero-topline {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  transform: translateX(-50%);
+  color: #a47584;
+  font-size: 0.57rem;
+  letter-spacing: 0.17em;
+}
+
+.hero-topline svg {
+  color: var(--gold);
+}
+
+.hero-content>.eyebrow {
+  margin-bottom: 28px;
+}
+
+/* Names arranged vertically: Jabez / heart / Asha */
+
+.hero-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  color: var(--text-dark);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(5rem, 10vw, 8.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.hero-name {
+  display: block;
+}
+
+.hero-heart {
+  display: block;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  margin: 8px 0;
+  color: var(--pink-dark);
+  animation: heartPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.hero-flourish {
+  margin: 35px 0 25px;
+  color: #c28b9b;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+}
+
+.hero-message {
+  color: #907a81;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  line-height: 1.7;
+}
+
+.hero-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 35px;
+  color: #966a79;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.hero-date svg {
+  color: var(--gold);
+}
+
+.scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  margin-top: 65px;
+  color: #b18c98;
+  font-size: 0.58rem;
+  letter-spacing: 0.19em;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 36px;
+  background: #d6a5b4;
+  animation: scrollPulse 1.8s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollPulse {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.65);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ========================================
+   COUNTDOWN
+======================================== */
+
+.countdown-section {
+  padding: 105px 24px;
+  background: #fff9fb;
+  text-align: center;
+}
+
+.section-title {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: clamp(2.5rem, 6vw, 4.1rem);
+  line-height: 1.08;
+}
+
+.section-description {
+  margin: 17px 0 38px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 120px));
+  justify-content: center;
+  gap: 14px;
+}
+
+.countdown-item {
+  display: flex;
+  min-height: 110px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--pink-border);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: var(--shadow-pink);
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(177, 111, 132, 0.14);
+}
+
+.countdown-number {
+  color: var(--pink-dark);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.7rem;
+  line-height: 1.1;
+}
+
+.countdown-label {
+  margin-top: 8px;
+  color: #a58a93;
+  font-size: 0.59rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   OUR STORY
+======================================== */
+
+.story-section {
+  padding: 100px 24px;
+  background: #fceef2;
+}
+
+.story-card {
+  max-width: 720px;
+  margin: auto;
+  text-align: center;
+}
+
+.story-icon {
+  display: flex;
+  width: 58px;
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 27px;
+  border: 1px solid var(--pink-border);
+  border-radius: 50%;
+  background: #fff9fb;
+  color: var(--pink-dark);
+}
+
+.story-card .section-title {
+  font-size: clamp(2.7rem, 6vw, 4rem);
+}
+
+.story-copy {
+  max-width: 560px;
+  margin: 25px auto;
+  color: #907a81;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  line-height: 1.9;
+}
+
+.story-signature {
+  margin-top: 30px;
+  color: var(--pink-dark);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+/* ========================================
+   WEDDING DETAILS
+======================================== */
+
+.details-section {
+  padding: 105px 24px 115px;
+  background: #fff9fb;
+  text-align: center;
+}
+
+.details-section>.section-title {
+  margin-bottom: 50px;
+}
+
+.details-grid {
+  display: grid;
+  max-width: 1050px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: auto;
+}
+
+.detail-card {
+  display: flex;
+  min-height: 270px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 20px;
+  border: 1px solid var(--pink-border);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: var(--shadow-pink);
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-6px);
+  border-color: #e8b4c3;
+  box-shadow: 0 14px 32px rgba(177, 111, 132, 0.14);
+}
+
+.detail-icon {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background: var(--pink-light);
+  color: var(--pink-dark);
+}
+
+.detail-label {
+  margin: 0 0 12px;
+  color: var(--pink-dark);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+}
+
+.detail-card h3 {
+  margin: 0;
+  color: var(--text-dark);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.detail-card>p:not(.detail-label) {
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: 0.79rem;
+  line-height: 1.7;
+}
+
+.map-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 11px 17px;
+  border: 1px solid #e3afbf;
+  border-radius: 30px;
+  background: #fff9fb;
+  color: var(--pink-dark);
+  font-size: 0.72rem;
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.map-button:hover {
+  transform: translateY(-2px);
+  background: var(--pink-dark);
+  color: #ffffff;
+}
+
+/* ========================================
+   CLOSING SECTION
+======================================== */
+
+.closing-section {
+  padding: 100px 24px 90px;
+  background:
+    radial-gradient(ellipse at 50% 0%,
+      rgba(255, 255, 255, 0.12),
+      transparent 65%),
+    #8f586b;
+  color: #fff8fa;
+  text-align: center;
+}
+
+.closing-ornament {
+  margin-bottom: 25px;
+  color: #f1d0a0;
+  font-size: 1.7rem;
+}
+
+.closing-section .eyebrow {
+  color: #f4dce4;
+}
+
+.closing-title {
+  margin: 0;
+  color: #fff8fa;
+  font-size: clamp(2.7rem, 7vw, 5.3rem);
+  line-height: 1.05;
+}
+
+.closing-names {
+  margin: 32px 0 10px;
+  color: #ffe0e9;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.closing-date {
+  color: #f4dce3;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+}
+
+.closing-heart {
+  display: block;
+  margin: 28px auto 0;
+  color: #f7c6d5;
+}
+
+/* ========================================
+   MEMORY VERSE
+======================================== */
+
+.memory-verse-section {
+  padding: 75px 24px 85px;
+  background: #fff0f4;
+  text-align: center;
+}
+
+.memory-verse-section .verse-ornament {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+  color: var(--pink-dark);
+}
+
+.memory-verse-section .eyebrow {
+  margin-bottom: 18px;
+}
+
+.memory-verse-section .verse-text {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #745b64;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.memory-verse-section .verse-reference {
+  margin-top: 18px;
+  color: var(--pink-dark);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.verse-heart {
+  display: block;
+  margin: 0 auto 14px;
+  color: var(--pink-dark);
+}
+
+.verse-text {
+  margin: 0;
+  color: #745b64;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.1rem, 2.3vw, 1.4rem);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.verse-reference {
+  margin: 12px 0 0;
+  color: var(--pink-dark);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.site-footer {
+  padding: 20px;
+  background: #744555;
+  color: #f7e5eb;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+/* ========================================
+   MUSIC BUTTON
+======================================== */
+
+.music-button {
+  position: fixed;
+  z-index: 20;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--pink-border);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--pink-dark);
+  box-shadow: 0 6px 20px rgba(177, 111, 132, 0.14);
+  cursor: pointer;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.music-button:hover {
+  transform: translateY(-3px);
+  background: var(--pink-light);
+}
+
+/* ========================================
+   TABLET AND MOBILE
+======================================== */
+
+@media (max-width: 760px) {
+  .hero-section {
+    min-height: 690px;
+    padding: 100px 20px 70px;
+  }
+
+  .hero-topline {
+    gap: 9px;
+    font-size: 0.48rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-glow {
+    inset: 12px;
+  }
+
+  .hero-names {
+    gap: 6px;
+    font-size: clamp(4.5rem, 16vw, 6.5rem);
+  }
+
+  .hero-heart {
+    width: 30px;
+    height: 30px;
+    margin: 5px 0;
+  }
+
+  .hero-date {
+    font-size: 0.61rem;
+    letter-spacing: 0.1em;
+  }
+
+  .countdown-section,
+  .details-section {
+    padding: 75px 18px;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, minmax(0, 115px));
+    gap: 12px;
+  }
+
+  .countdown-item {
+    min-height: 100px;
+  }
+
+  .story-section,
+  .closing-section {
+    padding: 80px 22px;
+  }
+
+  .details-grid {
+    max-width: 440px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .detail-card {
+    min-height: 230px;
+  }
+
+  .curtain-names {
+    font-size: clamp(3.3rem, 13vw, 5rem);
+  }
+
+  .curtain-invite {
+    max-width: 300px;
+    font-size: 0.82rem;
+  }
+
+  .floating-heart {
+    opacity: 0.14;
+  }
+
+  .heart-one {
+    left: 4%;
+  }
+
+  .heart-three {
+    right: 4%;
+  }
+
+  .heart-five {
+    right: 10%;
+  }
+}
+
+@media (max-width: 600px) {
+  .memory-verse-section {
+    padding: 60px 24px 65px;
+  }
+
+  .hero-names {
+    gap: 6px;
+    font-size: clamp(4rem, 15vw, 5.5rem);
+  }
+
+  .hero-heart {
+    width: 28px;
+    height: 28px;
+  }
+
+  .countdown-item {
+    border-radius: 13px;
+  }
+
+  .detail-card {
+    border-radius: 15px;
+  }
+
+  .music-button {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
