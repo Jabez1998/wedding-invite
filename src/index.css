@@ -752,23 +752,27 @@ button {
 }
 
 .closing-names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   margin: 32px 0 10px;
   color: #ffe0e9;
   font-family: "Cormorant Garamond", serif;
   font-size: 2rem;
   font-style: italic;
+  line-height: 1;
+}
+
+.closing-name-heart {
+  flex-shrink: 0;
+  color: #f7c6d5;
 }
 
 .closing-date {
   color: #f4dce3;
   font-size: 0.7rem;
   letter-spacing: 0.22em;
-}
-
-.closing-heart {
-  display: block;
-  margin: 28px auto 0;
-  color: #f7c6d5;
 }
 
 /* ========================================

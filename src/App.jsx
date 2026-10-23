@@ -86,14 +86,27 @@ export default function App() {
     }
   };
 
-  const openInvitation = () => {
+  const openInvitation = async () => {
     setOpened(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    try {
+      audio.volume = 0.5;
+      await audio.play();
+      setMusicOn(true);
+    } catch (error) {
+      console.warn("Unable to play wedding music:", error);
+      setMusicOn(false);
+    }
   };
 
   return (
     <main className="wedding-site">
-      <audio ref={audioRef} src="/music.mp3" loop preload="none" />
+      <audio ref={audioRef} src="/Instrumental.mp3" loop preload="none" />
 
       {/* Opening curtain screen */}
       <AnimatePresence>
@@ -328,9 +341,17 @@ export default function App() {
             <br />
             a love to last forever.
           </h2>
-          <p className="closing-names">Jabez & Asha</p>
+          <p className="closing-names">
+            <span>Jabez</span>
+            <Heart
+              className="closing-name-heart"
+              size={22}
+              fill="currentColor"
+              strokeWidth={1.5}
+            />
+            <span>Asha</span>
+          </p>
           <p className="closing-date">20 · 11 · 2026</p>
-          <Heart className="closing-heart" size={21} />
         </section>
 
         <section className="memory-verse-section" id="memory-verse">
